@@ -1,4 +1,6 @@
-﻿namespace SRkMatchmakerAPI.Framework;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SRkMatchmakerAPI.Framework;
 
 public enum PlayerPos { GK, FB, CB, DM, LM, AM, WG, ST }
 
@@ -158,6 +160,7 @@ public class Player
         return PosColor[Pos];
     }
 
+    [RegularExpression("\\^[a-z][a-z0-9]*$\\")]
     public string Id { get; }
     public string Email { get; }
     public int MMR { get; set; }

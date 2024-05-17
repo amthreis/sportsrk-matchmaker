@@ -53,6 +53,16 @@ public class HomeController : ControllerBase
         return Ok(ctx.Players);
     }
 
+    [HttpPost("cuidTest")]
+    public IActionResult AddPlayer(UserDTO u)
+    {
+        return Ok(new 
+        { 
+            Message = $"Works!",  
+            u
+        });
+    }
+
     [HttpPost("players/add")]
     public IActionResult AddPlayer(PlayerDTO p)
     {
