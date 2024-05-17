@@ -4,12 +4,12 @@ namespace SRkMatchmakerAPI.Framework;
 
 public class MatchmakingTool
 {
-    List<Player> players;
-    SortedSet<Player> queue;
+    List<Player> players = new List<Player>();
+    SortedSet<Player> queue = new SortedSet<Player>();
     Dictionary<PlayerPos, SortedSet<Player>> posQueue = new Dictionary<PlayerPos, SortedSet<Player>>();
 
 
-    SortedSet<Player> queueALGO2;
+    SortedSet<Player> queueALGO2 = new SortedSet<Player>();
     Dictionary<PlayerPos, SortedSet<Player>> posQueueALGO2 = new Dictionary<PlayerPos, SortedSet<Player>>();
 
     //blic static RandomNumberGenerator RNG;
@@ -23,7 +23,7 @@ public class MatchmakingTool
         this.dtos = dtos;
     }
 
-    public void Start(Action<MyResponse> callback)
+    public MyResponse Start()
     {
         Console.WriteLine("---- starting Matchmaking Tool. Players: ", dtos.Length);
 
@@ -60,13 +60,13 @@ public class MatchmakingTool
 
         foreach(var m in matches)
         {
-            matchOTDs.Add(new MatchOTD(m));
+            matchOTDs.Add(new MatchDTO(m));
         }
 
-        callback?.Invoke(new MyResponse(matchOTDs, queue.Select(q => q.Id).ToList()));
+        return new MyResponse(matchOTDs, queue.Select(q => q.Id).ToList());
     }
 
-    List<MatchOTD> matchOTDs = new List<MatchOTD>();
+    List<MatchDTO> matchOTDs = new List<MatchDTO>();
 
     List<Match> matches = new List<Match>();
 

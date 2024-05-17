@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using SRkMatchmakerAPI.Framework;
 using SRkMatchmakerAPI.Framework.DTO;
+using SRkMatchmakerAPI.Framework.Mappers;
 using SRkMatchmakerAPI.Persistence;
+using SRkMatchmakerAPI.Seeders;
 
 namespace SRkMatchmakerAPI.Controllers;
 
@@ -10,16 +12,34 @@ namespace SRkMatchmakerAPI.Controllers;
 public class HomeController : ControllerBase
 {
     readonly MatchmakerDbContext ctx;
+    //readonly MatchmakingTool mmTool;
 
     public HomeController()
     {
         ctx = new MatchmakerDbContext();
+        //mmTool = new MatchmakingTool();
     }
 
     private static readonly string[] Summaries = new[]
     {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
+
+    
+    [HttpPost("makeseed")]
+    public async Task<IActionResult> MakeGame()
+    {
+        var response = await Task.Run(() =>
+        {
+            var players = SeederDev.Make100Players();
+            var mmTool = new MatchmakingTool(players.Select(p => p.ToPlayerDTO()).ToArray());
+
+            return mmTool.Start();
+        });
+
+        return Ok(response);
+    }
+
 
     [HttpGet]
     public IActionResult GetAll()

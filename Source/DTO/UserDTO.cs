@@ -1,4 +1,6 @@
-﻿namespace SRkMatchmakerAPI.Framework.DTO;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SRkMatchmakerAPI.Framework.DTO;
 
 public struct UserDTO
 {

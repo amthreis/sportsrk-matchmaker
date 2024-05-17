@@ -13,4 +13,9 @@ public static class RNG
     {
         return rng.Next(from, to + 1);
     }
+
+    public static void SetSeed(int seed)
+    {
+        rng = new Random(seed);
+    }
 }
