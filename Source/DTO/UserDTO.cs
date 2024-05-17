@@ -8,14 +8,13 @@ public struct UserDTO
     [MaxLength(24)]
     [RegularExpression(@"[a-z][a-z0-9]*", ErrorMessage = "Not a valid Cuid2!")]
     public string Id { get; set; }
+
+    [EmailAddress]
     public string Email { get; set; }
 
     public UserDTO(string userId, string email)
     {
         Email = email;
         Id = userId;
-
-
-        //Role = role;
     }
 }
