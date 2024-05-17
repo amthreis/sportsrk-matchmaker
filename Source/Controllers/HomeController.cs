@@ -25,6 +25,18 @@ public class HomeController : ControllerBase
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
+    [HttpPost("/")]
+    public async Task<IActionResult> MakeGame(MakeGamesDTO mgDTO)
+    {
+        var response = await Task.Run(() =>
+        {
+            var mmTool = new MatchmakingTool(mgDTO.Players);
+
+            return mmTool.Start();
+        });
+
+        return Ok(response);
+    }
     
     [HttpPost("makeseed")]
     public async Task<IActionResult> MakeGame()

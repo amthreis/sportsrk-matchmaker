@@ -1,8 +1,11 @@
-﻿namespace SRkMatchmakerAPI.Framework.DTO;
+﻿using System.ComponentModel.DataAnnotations;
 
-public struct MakeGamesDTO
+namespace SRkMatchmakerAPI.Framework.DTO;
+
+public class MakeGamesDTO
 {
-    public PlayerDTO[] Players;
+    //[MinLength(22)]
+    public PlayerDTO[] Players {get; set; }
 
     public MakeGamesDTO(PlayerDTO[] players)
     {
