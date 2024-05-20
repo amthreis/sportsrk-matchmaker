@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://cudupos74x4f8"]
+
+[sub_resource type="SystemFont" id="SystemFont_ea4gk"]
+font_names = PackedStringArray("Bahnschrift")
+font_weight = 700
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_4t1gd"]
+font_names = PackedStringArray("Bahnschrift")
+font_weight = 600
+
+[node name="0" type="HBoxContainer"]
+offset_right = 256.0
+offset_bottom = 15.0
+size_flags_horizontal = 3
+
+[node name="Pos" type="Label" parent="."]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_ea4gk")
+theme_override_font_sizes/font_size = 14
+text = "(LM)"
+text_overrun_behavior = 3
+
+[node name="Name" type="Label" parent="."]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_ea4gk")
+theme_override_font_sizes/font_size = 14
+text = "[pos]hh"
+text_overrun_behavior = 3
+
+[node name="Info" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_fonts/normal_font = SubResource("SystemFont_4t1gd")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[color=#9c9c9c](mmr: [color=#fff]1222[/color], pos: [color=#ff8f77]WG[/color])[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

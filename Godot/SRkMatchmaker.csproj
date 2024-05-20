@@ -1,0 +1,24 @@
+<Project Sdk="Godot.NET.Sdk/4.2.2">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net7.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'ios' ">net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Faker.Net-Seed" Version="2.0.0" />
+    <PackageReference Include="NCuid.NetCore" Version="1.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="StackExchange.Redis" Version="2.7.27" />
+    <ProjectReference Include="..\API\SRkMatchmakerAPI.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Code\Draft\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="SRkMatchmakerAPI">
+      <HintPath>..\API\obj\Debug\net8.0\SRkMatchmakerAPI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

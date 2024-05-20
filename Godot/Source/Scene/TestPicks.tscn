@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://p2f5tl7wvca"]
+
+[ext_resource type="Script" path="res://Code/Draft/Draft.cs" id="1_j6cu1"]
+[ext_resource type="PackedScene" uid="uid://d01aiwi25qfub" path="res://Prefab/Pick/PickListPlayer.tscn" id="1_lgswv"]
+
+[node name="Picks" type="Node" node_paths=PackedStringArray("uiPlayerList")]
+script = ExtResource("1_j6cu1")
+uiPlayerList = NodePath("HUD/Scroll/Box")
+psListPlayer = ExtResource("1_lgswv")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scroll" type="ScrollContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.009
+anchor_bottom = 0.985
+offset_left = 10.0
+offset_top = 45.0
+offset_right = 344.632
+offset_bottom = -0.280029
+
+[node name="Box" type="VBoxContainer" parent="HUD/Scroll"]
+layout_mode = 2
+
+[node name="Header" parent="HUD/Scroll/Box" instance=ExtResource("1_lgswv")]
+layout_mode = 2
+
+[node name="Actions" type="HBoxContainer" parent="HUD"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 191.0
+offset_bottom = 37.0
+metadata/_edit_group_ = true
+
+[node name="Make1Match" type="Button" parent="HUD/Actions"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Make 1 Match"

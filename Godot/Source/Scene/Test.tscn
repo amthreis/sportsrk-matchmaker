@@ -1,0 +1,133 @@
+[gd_scene load_steps=5 format=3 uid="uid://d32be4epre7m1"]
+
+[ext_resource type="Script" path="res://Code/Matchmaking/Matchmaker.cs" id="1_7rjhq"]
+[ext_resource type="PackedScene" uid="uid://vtcgknwnvbm7" path="res://Prefab/ListPlayer.tscn" id="1_55tpv"]
+[ext_resource type="PackedScene" uid="uid://b16bmbn6f3h2a" path="res://Prefab/Match.tscn" id="3_076cn"]
+
+[sub_resource type="SystemFont" id="SystemFont_d1at0"]
+font_names = PackedStringArray("Bahnschrift")
+font_weight = 700
+subpixel_positioning = 0
+
+[node name="Matchmaker" type="Node" node_paths=PackedStringArray("uiPlayerList", "uiMatchList", "uiMatchListALGO2")]
+script = ExtResource("1_7rjhq")
+psListPlayer = ExtResource("1_55tpv")
+psListMatch = ExtResource("3_076cn")
+uiPlayerList = NodePath("HUD/Scroll/Box")
+uiMatchList = NodePath("HUD/Matches/Scroll/Box")
+uiMatchListALGO2 = NodePath("HUD/MatchesAlgo2/Scroll/Box")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scroll" type="ScrollContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.009
+anchor_bottom = 0.985
+offset_left = 10.0
+offset_top = 45.0
+offset_right = 344.632
+offset_bottom = -0.280029
+
+[node name="Box" type="VBoxContainer" parent="HUD/Scroll"]
+layout_mode = 2
+
+[node name="Header" parent="HUD/Scroll/Box" instance=ExtResource("1_55tpv")]
+layout_mode = 2
+
+[node name="Actions" type="HBoxContainer" parent="HUD"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 191.0
+offset_bottom = 37.0
+metadata/_edit_group_ = true
+
+[node name="Make1Match" type="Button" parent="HUD/Actions"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Make 1 Match"
+
+[node name="Matches" type="Control" parent="HUD"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 392.0
+offset_top = 42.0
+offset_right = 704.0
+offset_bottom = -23.0
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="HUD/Matches"]
+self_modulate = Color(1, 1, 0.615686, 1)
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 15.0
+theme_override_fonts/font = SubResource("SystemFont_d1at0")
+theme_override_font_sizes/font_size = 14
+text = "Matches (ALGO #1)"
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="Scroll" type="ScrollContainer" parent="HUD/Matches"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.046
+offset_top = 29.0
+offset_right = 341.0
+offset_bottom = -21.818
+
+[node name="Box" type="VBoxContainer" parent="HUD/Matches/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="0" parent="HUD/Matches/Scroll/Box" instance=ExtResource("3_076cn")]
+visible = false
+layout_mode = 2
+
+[node name="MatchesAlgo2" type="Control" parent="HUD"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 753.0
+offset_top = 42.0
+offset_right = 1065.0
+offset_bottom = -23.0
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="HUD/MatchesAlgo2"]
+self_modulate = Color(1, 1, 0.615686, 1)
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 15.0
+theme_override_fonts/font = SubResource("SystemFont_d1at0")
+theme_override_font_sizes/font_size = 14
+text = "Matches (ALGO #2)"
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="Scroll" type="ScrollContainer" parent="HUD/MatchesAlgo2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.046
+offset_top = 29.0
+offset_right = 341.0
+offset_bottom = -21.818
+
+[node name="Box" type="VBoxContainer" parent="HUD/MatchesAlgo2/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="0" parent="HUD/MatchesAlgo2/Scroll/Box" instance=ExtResource("3_076cn")]
+visible = false
+layout_mode = 2

@@ -1,0 +1,179 @@
+[gd_scene load_steps=5 format=3 uid="uid://b16bmbn6f3h2a"]
+
+[ext_resource type="Script" path="res://Code/UI/UIMatch.cs" id="1_l2h3q"]
+[ext_resource type="PackedScene" uid="uid://cudupos74x4f8" path="res://Prefab/MatchListPlayerVert.tscn" id="2_gfbct"]
+
+[sub_resource type="SystemFont" id="SystemFont_d1at0"]
+font_names = PackedStringArray("Bahnschrift")
+font_weight = 700
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_xqyhx"]
+font_names = PackedStringArray("Bahnschrift")
+font_weight = 600
+
+[node name="0" type="PanelContainer" node_paths=PackedStringArray("uiHomePlayersList", "uiAwayPlayersList", "uiInfo")]
+offset_right = 462.0
+offset_bottom = 460.0
+mouse_default_cursor_shape = 2
+script = ExtResource("1_l2h3q")
+uiHomePlayersList = NodePath("Content/Open/Margin/Box/HomePlayers")
+uiAwayPlayersList = NodePath("Content/Open/Margin/Box/AwayPlayers")
+uiInfo = NodePath("Content/Open/Margin/Box/Info/MMR")
+
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Closed" type="HBoxContainer" parent="Content"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Margin" type="MarginContainer" parent="Content/Closed"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="Content/Closed/Margin"]
+layout_mode = 2
+text = "v"
+
+[node name="Open" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Margin" type="MarginContainer" parent="Content/Open"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Box" type="VBoxContainer" parent="Content/Open/Margin"]
+layout_mode = 2
+
+[node name="InfoTitle" type="Label" parent="Content/Open/Margin/Box"]
+self_modulate = Color(1, 1, 0.615686, 1)
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_d1at0")
+theme_override_font_sizes/font_size = 14
+text = "----Info"
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="Info" type="VBoxContainer" parent="Content/Open/Margin/Box"]
+layout_mode = 2
+
+[node name="MMR" type="RichTextLabel" parent="Content/Open/Margin/Box/Info"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/line_separation = 2
+theme_override_fonts/normal_font = SubResource("SystemFont_xqyhx")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "mmr"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Home2" type="Label" parent="Content/Open/Margin/Box"]
+self_modulate = Color(1, 1, 0.615686, 1)
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_d1at0")
+theme_override_font_sizes/font_size = 14
+text = "----Home"
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="HomePlayers" type="VBoxContainer" parent="Content/Open/Margin/Box"]
+layout_mode = 2
+
+[node name="0" parent="Content/Open/Margin/Box/HomePlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="1" parent="Content/Open/Margin/Box/HomePlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="2" parent="Content/Open/Margin/Box/HomePlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="3" parent="Content/Open/Margin/Box/HomePlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="4" parent="Content/Open/Margin/Box/HomePlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="5" parent="Content/Open/Margin/Box/HomePlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="6" parent="Content/Open/Margin/Box/HomePlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="7" parent="Content/Open/Margin/Box/HomePlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="8" parent="Content/Open/Margin/Box/HomePlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="9" parent="Content/Open/Margin/Box/HomePlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="10" parent="Content/Open/Margin/Box/HomePlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="Away" type="Label" parent="Content/Open/Margin/Box"]
+self_modulate = Color(1, 1, 0.615686, 1)
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_d1at0")
+theme_override_font_sizes/font_size = 14
+text = "----Away"
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="AwayPlayers" type="VBoxContainer" parent="Content/Open/Margin/Box"]
+layout_mode = 2
+
+[node name="0" parent="Content/Open/Margin/Box/AwayPlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="1" parent="Content/Open/Margin/Box/AwayPlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="2" parent="Content/Open/Margin/Box/AwayPlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="3" parent="Content/Open/Margin/Box/AwayPlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="4" parent="Content/Open/Margin/Box/AwayPlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="5" parent="Content/Open/Margin/Box/AwayPlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="6" parent="Content/Open/Margin/Box/AwayPlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="7" parent="Content/Open/Margin/Box/AwayPlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="8" parent="Content/Open/Margin/Box/AwayPlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="9" parent="Content/Open/Margin/Box/AwayPlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2
+
+[node name="10" parent="Content/Open/Margin/Box/AwayPlayers" instance=ExtResource("2_gfbct")]
+layout_mode = 2

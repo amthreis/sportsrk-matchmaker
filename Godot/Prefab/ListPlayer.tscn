@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://vtcgknwnvbm7"]
+
+[ext_resource type="Script" path="res://Code/UI/UIListPlayer.cs" id="1_6eex0"]
+
+[sub_resource type="SystemFont" id="SystemFont_igyds"]
+font_names = PackedStringArray("Bahnschrift")
+font_weight = 700
+subpixel_positioning = 0
+
+[node name="Header" type="HBoxContainer"]
+modulate = Color(1, 1, 0.666667, 1)
+script = ExtResource("1_6eex0")
+
+[node name="Player" type="Label" parent="."]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_igyds")
+theme_override_font_sizes/font_size = 14
+text = "Player"
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="Pos" type="Label" parent="."]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_igyds")
+theme_override_font_sizes/font_size = 14
+text = "Pos"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="MMR" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+
+[node name="Rd" type="Label" parent="MMR"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_igyds")
+theme_override_font_sizes/font_size = 14
+text = "MMR"
+uppercase = true
+
+[node name="Full" type="Label" parent="MMR"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_igyds")
+theme_override_font_sizes/font_size = 14
+text = "(FULL)"
+uppercase = true
