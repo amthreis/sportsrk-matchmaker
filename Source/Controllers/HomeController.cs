@@ -5,6 +5,7 @@ using SRkMatchmakerAPI.Framework.Mappers;
 using SRkMatchmakerAPI.Persistence;
 using SRkMatchmakerAPI.Seeders;
 
+
 namespace SRkMatchmakerAPI.Controllers;
 
 [ApiController]
@@ -14,9 +15,14 @@ public class HomeController : ControllerBase
     readonly MatchmakerDbContext ctx;
     //readonly MatchmakingTool mmTool;
 
+    // readonly string redisHost;
+    // readonly string redisPort;
+
     public HomeController()
     {
         ctx = new MatchmakerDbContext();
+
+        //redis = new ConnectionMultiplexer();
         //mmTool = new MatchmakingTool();
     }
 
@@ -26,17 +32,37 @@ public class HomeController : ControllerBase
     };
 
     [HttpPost("/")]
-    public async Task<IActionResult> MakeGame(MakeGamesDTO mgDTO)
+    public async Task<IActionResult> MakeGames(MakeGamesDTO mgDTO)
     {
         var response = await Task.Run(() =>
         {
             var mmTool = new MatchmakingTool(mgDTO.Players);
-
             return mmTool.Start();
         });
 
         return Ok(response);
     }
+
+    // [HttpPost("/make")]
+    // public async Task<IActionResult> MakeGame(MakeGamesDTO mgDTO)
+    // {
+    //      //   var match = await connection.GetDatabase().ListRightPopAsync("football:matches:tbp");
+    //     var mmTool = new MatchmakingTool(mgDTO.Players);
+
+    //     var response = await Task.Run(() =>
+    //     {
+    //         var a = mmTool.Start();
+
+    //         // if (!mgDTO.Defer)
+    //         // {
+    //         //     redis.conn
+    //         // }
+            
+    //         return a;
+    //     });
+
+    //     return Ok(response);
+    // }
     
     [HttpPost("makeseed")]
     public async Task<IActionResult> MakeGame()
@@ -56,7 +82,7 @@ public class HomeController : ControllerBase
     [HttpGet]
     public IActionResult GetAll()
     {
-        return Ok(Summaries);
+        return Ok(new string[] { "AA", "b", "ASIDASOD" });
     }
 
     [HttpGet("players/get")]

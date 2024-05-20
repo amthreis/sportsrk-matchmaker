@@ -1,4 +1,6 @@
 ﻿
+using System.Text.Json.Serialization;
+
 namespace SRkMatchmakerAPI.Framework.DTO;
 
 public enum PlayerDTOSide { Home, Away }
@@ -7,6 +9,8 @@ public struct PlayerDTO
 {
     public UserDTO User { get; set; }
     public int MMR { get; set; }
+
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public PlayerPos Pos { get; set; }
 
     public PlayerDTO(string id, string name, int mmr, PlayerPos pos)
